@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         rollButton.setOnClickListener { rollDice() }
 
         //muestro una vez el dado al principio
-        val firstDiceImage : ImageView = findViewById(R.id.imageView)
+        val firstDiceImage: ImageView = findViewById(R.id.imageView)
         firstDiceImage.setImageResource(R.drawable.dice_1)
     }
 
@@ -32,11 +32,12 @@ class MainActivity : AppCompatActivity() {
     * texto de esa referencia cambie al valor de la variable, convirtiendola en un String (antes era un int)*/
     private fun rollDice() {
         val diceRoll = dice.roll()
+
         //traigo la referencia de la imagen del dado
-        val diceImage : ImageView = findViewById(R.id.imageView)
+        val diceImage: ImageView = findViewById(R.id.imageView)
 
         //Hago un "case" para saber qué imagen mostrar dependiendo del número obtenido
-        val drawableResult = when(diceRoll) {
+        val drawableResult = when (diceRoll) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
             3 -> R.drawable.dice_3
@@ -49,10 +50,13 @@ class MainActivity : AppCompatActivity() {
         diceImage.setImageResource(drawableResult)
         //Añado descripción de la imagen una vez que ya se el resultado
         diceImage.contentDescription = diceRoll.toString()
+
         //hacemos que el método escriba el número que ha salido
         val contentAfterImage = "It rolled a $diceRoll"
-        val textAfterImage : TextView = findViewById(R.id.textResult)
+        val textAfterImage: TextView = findViewById(R.id.textResult)
         textAfterImage.text = contentAfterImage.toString()
+
+
     }
 }
 
